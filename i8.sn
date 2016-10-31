@@ -6,12 +6,12 @@
 
 Scope Core
 
-type i8 #all objects automat
+type i8 #all objects automaticaly inherits the object class
 {
 
     #all objects must have a ToString Cast  
     @public
-    @overide  
+    @overide #overide bace class tostring
     fn ToString() : str
     {
         return IntToString(this, 10);

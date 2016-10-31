@@ -11,6 +11,7 @@ type Object
 
     #all objects must have a ToString Cast    
     @public
+    @virtual
     fn ToString() : str
     {
         return "Core.Object()";
