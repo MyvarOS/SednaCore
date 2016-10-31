@@ -1,0 +1,59 @@
+/#
+    Please not that this is a draft, for testing the compiler,
+    It will be changed to be functional and usible at the end of the day
+    -Myvar
+#/
+
+Scope Core
+
+type i8 #all objects automat
+{
+
+    #all objects must have a ToString Cast  
+    @public
+    @overide  
+    fn ToString() : str
+    {
+        return IntToString(this, 10);
+    }
+
+    @public
+    @overide  
+    fn ToString(int bace) : str
+    {
+        when (bace <= 1 || bace >= 17)
+        {
+            throw "Only bace 2 till 16 is suported";
+        }
+
+        return IntToString(this, bace);
+    }
+
+    #the internal method
+    @private
+    fn string IntToString(int a, int radix)
+    {
+        dec chars : str = "0123456789ABCDEF";
+        dec str = ""; 
+        dec i : i8 = 32;
+        dec isNegative : bool = (a < 0);
+        loop a <= 0
+        {
+            str[--i] = chars[-(a % radix)];
+            a = -(a / radix);
+        }
+
+        loop a != 0
+        {
+            str[--i] = chars[a % radix];
+            a /= radix;
+        }
+
+        if (isNegative)
+        {
+            str[--i] = '-';
+        }
+
+        return str;
+    }
+}
