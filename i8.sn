@@ -19,7 +19,7 @@ type i8 #all objects automaticaly inherits the object class
 
     @public
     @overide  
-    fn ToString(int bace) : str
+    fn ToString(bace : i8) : str
     {
         when (bace <= 1 || bace >= 17)
         {
@@ -31,7 +31,7 @@ type i8 #all objects automaticaly inherits the object class
 
     #the internal method
     @private
-    fn string IntToString(int a, int radix)
+    fn string IntToString(a : i32, radix : i8)
     {
         dec chars : str = "0123456789ABCDEF";
         dec str = ""; 
