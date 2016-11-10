@@ -2,23 +2,24 @@
     Please note that this is a draft, for testing the compiler,
     It will be changed to be functional and usible at the end of the day
     -Myvar
+
 #/
 
-Scope Core
-
+scope Core
 type i8 #all objects automaticaly inherits the object class
 {
 
-    #all objects must have a ToString Cast  
+    #all objects must have a ToString Cast
     @public
-    @overide #overide bace class tostring
+    @overide
+    #overide bace class tostring
     fn ToString() : str
     {
         return IntToString(this, 10);
     }
 
     @public
-    @overide  
+    @overide
     fn ToString(bace : i8) : str
     {
         when (bace <= 1 || bace >= 17)
@@ -31,29 +32,29 @@ type i8 #all objects automaticaly inherits the object class
 
     #the internal method
     @private
-    fn string IntToString(a : i32, radix : i8)
+    fn IntToString(a : i32, radix : i8) : str
     {
         dec chars : str = "0123456789ABCDEF";
-        dec str = ""; 
+        dec tmp = "";
         dec i : i8 = 32;
         dec isNegative : bool = (a < 0);
         loop a <= 0
         {
-            str[--i] = chars[-(a % radix)];
+            tmp[--i] = chars[-(a % radix)];
             a = -(a / radix);
         }
 
         loop a != 0
         {
-            str[--i] = chars[a % radix];
+            tmp[--i] = chars[a % radix];
             a /= radix;
         }
 
-        if (isNegative)
+        when (isNegative)
         {
-            str[--i] = '-';
+            tmp[--i] = '-';
         }
 
-        return str;
+        return tmp;
     }
 }
